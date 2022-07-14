@@ -1,0 +1,24 @@
+function processData(s) {
+    var w =s.split("\n");
+    var tt=""; var rr="";
+    for (let i=1; i<w.length; i++){
+       for (var j = 0; j <w[i].length; j++){
+       if (j%2==0){tt+=(w[i][j]); }
+       else if(j%2!=0)  {rr+=(w[i][j]); }
+       }
+    console.log(tt +" "+rr);
+    tt = "";
+    rr = "";
+    //Enter your code here
+} 
+}
+process.stdin.resume();
+process.stdin.setEncoding("ascii");
+_input = "";
+process.stdin.on("data", function (input) {
+    _input += input;
+});
+
+process.stdin.on("end", function () {
+   processData(_input);
+});
