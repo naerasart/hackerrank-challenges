@@ -1,0 +1,37 @@
+function processData(input) {
+   input = input.split('\n');  
+   //to split the input into several lines.
+    var Numberoflinesinphonebook = Number(input[0]);    
+    //to know the number of lines in a dictionary, which is the first line of input.
+var line={};var phonebook = {}
+   
+    for (var k = 1; k<= Numberoflinesinphonebook;  ){          
+        line = input[k].split(' ');  
+        phonebook[line[0]] = line[1] ;  
+       k++;
+    } //for arranging phone book into lines of names and numbers
+ 
+    for (var i = Numberoflinesinphonebook+1; i <= input.length-1;   ){
+        var phonenumber = (phonebook[input[i]]);   
+        if (phonebook.hasOwnProperty(input[i])){
+            console.log(input[i]+'='+phonenumber)
+        } else if (!phonebook.hasOwnProperty(input[i])) {
+            console.log('Not found')
+        }i++
+        // for classifying requests for input into either not found of returning it's value from the phone book.
+    }
+
+
+} 
+ 
+
+process.stdin.resume();
+process.stdin.setEncoding("ascii");
+_input = "";
+process.stdin.on("data", function (input) {
+    _input += input;
+});
+
+process.stdin.on("end", function () {
+   processData(_input);
+});
